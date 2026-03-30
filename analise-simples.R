@@ -6,6 +6,10 @@ analise_qualitativa <- function(x) {
   cbind(n, f)
 }
 
+analise_quantitativa <- function(x) {
+  c(summary(x), c("SD"=round(sd(x), digits=2)))
+}
+
 # Leitura dos dados ------------------------
 
 df <- read.csv("dados - respostas formulário.csv")
@@ -28,3 +32,11 @@ for (frutas in strsplit(df$fruta_gosta, ", ")) {
   }
 }
 sort(table(frutas_flat), decreasing=TRUE)
+
+# análise descritiva das variáveis quantitativas ---------------
+
+for (coluna in c("idade", "peso", "n_refeicoes_dia")) {
+  cat(coluna, "\n")
+  print(analise_quantitativa(df[,coluna]))
+  cat("\n")
+}

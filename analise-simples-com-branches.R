@@ -16,7 +16,11 @@ df$faixa_etaria <- cut(df$idade,
 
 # Distribuições de frequência e gráficos -----------------------------
 
-# (PREENCHER NA BRANCH analise-graficos)
+table(df$sexo)
+barplot(table(df$faixa_etaria, df$sexo), beside=TRUE, legend=TRUE)
+hist(df$altura)
+boxplot(df$imc ~ df$sexo)
+plot(df$altura, df$peso, col=factor(df$sexo))
 
 # Medidas descritivas ------------------------------------------------
 

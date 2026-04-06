@@ -24,4 +24,12 @@ plot(df$altura, df$peso, col=factor(df$sexo))
 
 # Medidas descritivas ------------------------------------------------
 
-# (PREENCHER NA BRANCH analise-medidas)
+analise_quantitativa <- function(x) c("Mínimo"=min(x),
+                                      "Máximo"=max(x),
+                                      "Mediana"=median(x),
+                                      "Média"=mean(x),
+                                      "Desvio"=sd(x))
+desc_idade <- analise_quantitativa(df$idade)
+desc_altura <- analise_quantitativa(df$altura)
+desc_peso <- analise_quantitativa(df$peso)
+desc_imc <- analise_quantitativa(df$imc)
